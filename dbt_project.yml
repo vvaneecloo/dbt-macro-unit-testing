@@ -1,6 +1,8 @@
 name: 'dbt_macros_unit_testing'
 version: '1.0.0'
 
+profile: dbt_macros_unit_testing
+
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]

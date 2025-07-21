@@ -34,7 +34,7 @@
     {%- endif -%}
 
     {% set expected = " [expected]: " ~ success %}
-    {% set expected_padded = expected.ljust(expected | length + 1) %}
+    {% set expected_padded = expected.ljust(30) %}
 
     {% set actual  = " || [actual]: " ~ actual %}
     {% set actual_padded = actual.ljust(expected_padded | length) %}
