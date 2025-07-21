@@ -62,6 +62,8 @@ Run `dbt deps` to install the package.
 {{ assert(5, "select count(*) from " ~ ref('customers') ~ " where email is null", 0, is_query=True) }}
 ```
 
+For more examples, you can check the `macros/unit_test__assert.sql` file.
+
 ## Output Format
 
 The macro provides colored console output for easy identification of test results:
