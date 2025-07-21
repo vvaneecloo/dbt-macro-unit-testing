@@ -60,20 +60,6 @@ Run `dbt deps` to install the package.
 {{ assert(5, "select count(*) from " ~ ref('customers') ~ " where email is null", 0, is_query=True) }}
 ```
 
-#### Advanced Usage in Models
-
-```sql
--- In a model file (models/my_model.sql)
-{% set test_results = [] %}
-
--- Run your assertions
-{{ assert(1, calculate_discount(100, 0.1), 10) }}
-{{ assert(2, "select max(created_at) from " ~ source('raw', 'events'), '2024-01-15', is_query=True) }}
-
--- Your actual model SQL
-select * from {{ ref('base_table') }}
-```
-
 ## Output Format
 
 The macro provides colored console output for easy identification of test results:
