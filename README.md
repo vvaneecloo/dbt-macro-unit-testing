@@ -4,7 +4,9 @@ A lightweight macro for asserting expected outcomes in your dbt projects.
 
 ## Overview
 
-The `dbt_macros_unit_testing` package enables you to define tests for other macros or SQL expressions, logging structured success/failure messages directly in the dbt output. It supports both pure Jinja expressions and SQL queries, making it ideal for validating macro logic and data transformations.
+The `dbt_macros_unit_testing` package enables you to define tests for other macros or SQL expressions, logging structured success/failure messages directly in the dbt output. 
+
+It supports both **pure Jinja expressions and SQL queries**, making it ideal for validating macro logic and data transformations.
 
 ## Installation
 
@@ -13,7 +15,7 @@ Add the package to your `packages.yml` file:
 ```yaml
 packages:
   - git: "https://github.com/your-org/dbt_assert.git"
-    revision: main  # or specify a tag/commit
+    revision: main
 ```
 
 Run `dbt deps` to install the package.
