@@ -22,7 +22,7 @@ Run `dbt deps` to install the package.
 
 ## Usage
 
-### Macro Signature
+### Syntax
 
 ```sql
 {% macro assert(test_number, macro_to_test_with_args, success, is_query=False) %}
@@ -62,7 +62,7 @@ Run `dbt deps` to install the package.
 {{ assert(5, "select count(*) from " ~ ref('customers') ~ " where email is null", 0, is_query=True) }}
 ```
 
-For more examples, you can check the `macros/unit_test__assert.sql` file.
+> Note: for more examples, you can check the `macros/unit_test__assert.sql` file.
 
 ## Output Format
 
@@ -83,10 +83,14 @@ The macro provides colored console output for easy identification of test result
 ⚠️  [ERROR #3] Missing required parameter: success
 ```
 
+### Example of real unit testing logs
+
+![Real logs from dbt](logs_example.png)
+
 ## Best Practices
 
 1. **Use sequential test numbers** - This helps track which assertions pass or fail
-2. **Group related tests** - Keep assertions for similar functionality together
+2. **Group related tests** - Keep assertions for similar functionality together via a dedicated macro
 3. **Test edge cases** - Include tests for null values, empty strings, and boundary conditions
 4. **Document your tests** - Add comments explaining what each assertion validates
 
