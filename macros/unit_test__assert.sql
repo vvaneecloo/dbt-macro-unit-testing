@@ -18,6 +18,12 @@
     cast({{ a }} ** {{ b }} as integer)
 {% endmacro %}
 
+{% macro add_days_to_date(date_string, days) %}
+  {%- set date_obj = modules.datetime.datetime.strptime(date_string, '%Y-%m-%d') -%}
+  {%- set new_date = date_obj + modules.datetime.timedelta(days=days) -%}
+  {{ return(new_date.strftime('%Y-%m-%d')) }}
+{% endmacro %}
+
 {% macro unit_test__assert() %}
     {% do assert(1,  add(1, 1), "2", is_query=True) %}
     {% do assert(2,  add(1, -1), "0", is_query=True) %}
@@ -34,4 +40,8 @@
     {% do assert(10,  power(1, 1), "1", is_query=True) %}
     {% do assert(11,  power(1, -1), "1", is_query=True) %}
     {% do assert(12,  power(-2, 2), "4", is_query=True) %}
+
+    {% do assert(10, add_days_to_date("2025-07-21", 1), "2025-07-22") %}
+    {% do assert(11, add_days_to_date("2025-07-21", -1), "2025-07-20") %}
+    {% do assert(12, add_days_to_date("2025-07-21", 2), "2025-07-23") %}
 {% endmacro %}
