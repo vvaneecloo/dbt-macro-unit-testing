@@ -1,6 +1,6 @@
 # dbt_macros_unit_testing
 
-A lightweight macro for asserting expected outcomes in your dbt projects.
+A lightweight dbt package for asserting expected outcomes in your dbt projects.
 
 ## Overview
 
