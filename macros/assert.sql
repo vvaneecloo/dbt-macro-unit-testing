@@ -1,7 +1,20 @@
-{% macro assert(test_number, macro_to_test_with_args, success, is_query=False) -%}
+{% macro assert(test_number, macro_to_test_with_args, success, comparison_operator, is_query=False) -%}
     {% set green = {"begin": "\033[32m", "end": "\033[0m"} %}
     {% set red = {"begin": "\033[31m", "end": "\033[0m"} %}
     {% set bold = {"begin": "\033[1m", "end": "\033[0m"} %}
+
+    {%- set operators = {
+    'equal': actual == expected,
+    'different': actual != expected,
+    'greater': actual > expected,
+    'lesser': actual < expected,
+    'greater_or_equal': actual >= expected,
+    'lesser_or_equal': actual <= expected,
+    'in': actual in expected,
+    'not_in': actual not in expected,
+    'is_none': actual is none,
+    'is_not_none': actual is not none
+    } -%}
 
     {% if is_query %}
         {# Evaluate the macro as SQL and run it #}
@@ -24,7 +37,9 @@
         {{ print(bold['begin'] ~ "[" ~ red['begin'] ~ "ERROR" ~ red['end'] ~ "]" ~ bold['end'] ~ ": You forgot to specify your macro_to_test_with_args cases !") }}
     {%- endif -%}
 
-    {%- set raw_label = "[FAIL #" ~ test_number ~ "]" if actual != success else "[PASS #" ~ test_number ~ "]" -%}
+    {%- set test_passed = operators.get(operator, false) -%}
+
+    {%- set raw_label = "[PASS #" ~ test_number ~ "]" if test_passed else "[FAIL #" ~ test_number ~ "]" -%}
     {%- set padded_label = raw_label.ljust(10) -%}
 
     {%- if actual != success -%}
