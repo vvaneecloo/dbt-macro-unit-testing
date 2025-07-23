@@ -4,16 +4,16 @@
     {% set bold = {"begin": "\033[1m", "end": "\033[0m"} %}
 
     {%- set operators = {
-    'equal': actual == expected,
-    'different': actual != expected,
-    'greater': actual > expected,
-    'lesser': actual < expected,
-    'greater_or_equal': actual >= expected,
-    'lesser_or_equal': actual <= expected,
-    'in': actual in expected,
-    'not_in': actual not in expected,
-    'is_none': actual is none,
-    'is_not_none': actual is not none
+        'equal': actual == expected,
+        'different': actual != expected,
+        'greater': actual > expected,
+        'lesser': actual < expected,
+        'greater_or_equal': actual >= expected,
+        'lesser_or_equal': actual <= expected,
+        'in': actual in expected,
+        'not_in': actual not in expected,
+        'is_none': actual is none,
+        'is_not_none': actual is not none
     } -%}
 
     {% if is_query %}
