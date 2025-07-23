@@ -34,15 +34,15 @@
             'lesser_or_equal': actual <= expected,
         } -%}
     {% elif comparison_operator in ["in", "not_in"] %}
-        operators = {
+        {% set operators = {
             'in': actual in expected,
             'not_in': actual not in expected
-        }
+        } %}
     {% elif comparison_operator in ["is_none", "is_not_none"] %}
-        operators = {
+        {% set operators = {
             'is_none': actual is None,
             'is_not_none': actual is not None
-        }
+        } %}
     {% endif %}
 
     {%- set test_passed = operators.get(comparison_operator, false) -%}
