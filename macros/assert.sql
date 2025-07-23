@@ -37,12 +37,12 @@
         'is_not_none': actual is not none
     } -%}
 
-    {%- set test_passed = operators.get(operator, false) -%}
+    {%- set test_passed = operators.get(comparison_operator, false) -%}
 
     {%- set raw_label = "[PASS #" ~ test_number ~ "]" if test_passed else "[FAIL #" ~ test_number ~ "]" -%}
     {%- set padded_label = raw_label.ljust(10) -%}
 
-    {%- if actual != expected -%}
+    {%- if not test_passed -%}
         {%- set label = bold['begin'] ~ red['begin'] ~ padded_label ~ red['end'] ~ bold['end'] -%}
     {%- else -%}
         {%- set label = bold['begin'] ~ green['begin'] ~ padded_label ~ green['end'] ~ bold['end'] -%}
