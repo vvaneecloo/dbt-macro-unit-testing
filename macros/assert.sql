@@ -24,18 +24,26 @@
         {{ print(bold['begin'] ~ "[" ~ red['begin'] ~ "ERROR" ~ red['end'] ~ "]" ~ bold['end'] ~ ": You forgot to specify your macro_to_test_with_args cases !") }}
     {%- endif -%}
 
-    {%- set operators = {
-        'equal': actual == expected,
-        'different': actual != expected,
-        'greater': actual > expected,
-        'lesser': actual < expected,
-        'greater_or_equal': actual >= expected,
-        'lesser_or_equal': actual <= expected,
-        'in': actual in expected,
-        'not_in': actual not in expected,
-        'is_none': actual is none,
-        'is_not_none': actual is not none
-    } -%}
+    {% if comparison_operator in ["equal", "different", "greater", "lesser", "greater_or_equal", "lesser_or_equal"] %}
+        {%- set operators = {
+            'equal': actual == expected,
+            'different': actual != expected,
+            'greater': actual > expected,
+            'lesser': actual < expected,
+            'greater_or_equal': actual >= expected,
+            'lesser_or_equal': actual <= expected,
+        } -%}
+    {% elif comparison_operator in ["in", "not_in"] %}
+        operators = {
+            'in': actual in expected,
+            'not_in': actual not in expected
+        }
+    {% elif comparison_operator in ["is_none", "is_not_none"] %}
+        operators = {
+            'is_none': actual is None,
+            'is_not_none': actual is not None
+        }
+    {% endif %}
 
     {%- set test_passed = operators.get(comparison_operator, false) -%}
 
