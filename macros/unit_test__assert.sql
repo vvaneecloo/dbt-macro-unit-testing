@@ -24,24 +24,20 @@
   {{ return(new_date.strftime('%Y-%m-%d')) }}
 {% endmacro %}
 
-{% macro unit_test__assert() %}
-    {% do assert(1,  add(1, 1), "2", is_query=True) %}
-    {% do assert(2,  add(1, -1), "0", is_query=True) %}
-    {% do assert(3,  add(1, -2), "-1", is_query=True) %}
-
-    {% do assert(4,  multiply(1, 1), "1", is_query=True) %}
-    {% do assert(5,  multiply(1, -1), "-1", is_query=True) %}
-    {% do assert(6,  multiply(2, -2), "-4", is_query=True) %}
-
-    {% do assert(7,  not_casted_power(1, 1), "1", is_query=True) %}
-    {% do assert(8,  not_casted_power(1, -1), "1", is_query=True) %}
-    {% do assert(9,  not_casted_power(-2, 2), "4", is_query=True) %}
-
-    {% do assert(10,  power(1, 1), "1", is_query=True) %}
-    {% do assert(11,  power(1, -1), "1", is_query=True) %}
-    {% do assert(12,  power(-2, 2), "4", is_query=True) %}
-
-    {% do assert(10, add_days_to_date("2025-07-21", 1), "2025-07-22") %}
-    {% do assert(11, add_days_to_date("2025-07-21", -1), "2025-07-20") %}
-    {% do assert(12, add_days_to_date("2025-07-21", 2), "2025-07-23") %}
+{% macro unit_test__assertEqual() %}
+    {% do assertEqual(1,  add(1, 1), "2", is_query=True) %}
+    {% do assertEqual(2,  add(1, -1), "0", is_query=True) %}
+    {% do assertEqual(3,  add(1, -2), "-1", is_query=True) %}
+    {% do assertEqual(4,  multiply(1, 1), "1", is_query=True) %}
+    {% do assertEqual(5,  multiply(1, -1), "-1", is_query=True) %}
+    {% do assertEqual(6,  multiply(2, -2), "-4", is_query=True) %}
+    {% do assertEqual(7,  not_casted_power(1, 1), "1", is_query=True) %}
+    {% do assertEqual(8,  not_casted_power(1, -1), "1", is_query=True) %}
+    {% do assertEqual(9,  not_casted_power(-2, 2), "4", is_query=True) %}
+    {% do assertEqual(10,  power(1, 1), "1", is_query=True) %}
+    {% do assertEqual(11,  power(1, -1), "1", is_query=True) %}
+    {% do assertEqual(12,  power(-2, 2), "4", is_query=True) %}
+    {% do assertEqual(10, add_days_to_date("2025-07-21", 1), "2025-07-22") %}
+    {% do assertEqual(11, add_days_to_date("2025-07-21", -1), "2025-07-20") %}
+    {% do assertEqual(12, add_days_to_date("2025-07-21", 2), "2025-07-23") %}
 {% endmacro %}
