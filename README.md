@@ -62,7 +62,7 @@ Run `dbt deps` to install the package.
 {{ assert(5, "select count(*) from " ~ ref('customers') ~ " where email is null", 0, is_query=True) }}
 ```
 
-> Note: for more examples, you can check the `macros/unit_test__assert.sql` file.
+> Note: for more examples, you can check the `macros assertEqual, assertGreater_Lesser, assertIn, assertNone`  file.
 
 ## Output Format
 
