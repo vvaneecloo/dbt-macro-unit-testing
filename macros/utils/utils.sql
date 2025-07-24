@@ -23,3 +23,7 @@
   {%- set new_date = date_obj + modules.datetime.timedelta(days=days) -%}
   {{ return(new_date.strftime('%Y-%m-%d')) }}
 {% endmacro %}
+
+{% macro cast_date() %}
+    null :: date
+{% endmacro %}
