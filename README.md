@@ -1,14 +1,10 @@
-# dbt_macros_unit_testing
-
-
 <img width="1024" height="200" alt="dbt-{ macro }-unit-testing (1) (1)" src="https://github.com/user-attachments/assets/789962e1-9374-4b73-bbd6-0af7a6347838" />
-
-
-A lightweight dbt package for unit testing your dbt macros.
 
 ## Overview
 
-The `dbt_macros_unit_testing` package enables you to define tests for other macros or SQL expressions, logging structured success/failure messages directly in the dbt output. 
+The `dbt_macros_unit_testing` is  lightweight dbt package for unit testing your dbt macros.
+
+It enables you to define tests for other macros or SQL expressions, logging structured success/failure messages directly in the dbt output. 
 
 It supports both **pure Jinja expressions and SQL queries**, making it ideal for validating macro logic and data transformations.
 
