@@ -4,7 +4,7 @@
 <img width="1024" height="200" alt="dbt-{ macro }-unit-testing (1) (1)" src="https://github.com/user-attachments/assets/789962e1-9374-4b73-bbd6-0af7a6347838" />
 
 
-A lightweight dbt package for asserting expected outcomes in your dbt projects.
+A lightweight dbt package for unit testing your dbt macros.
 
 ## Overview
 
