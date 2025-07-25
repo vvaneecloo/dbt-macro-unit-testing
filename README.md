@@ -199,11 +199,6 @@ The macro provides colored console output for easy identification of test result
 ❌ [FAIL #2] [expected]: 150 || [actual]: 142
 ```
 
-### Error Output
-```
-⚠️  [ERROR #3] Missing required parameter: success
-```
-
 ### Example of real unit testing logs
 
 ![Real logs from dbt](logs_example.png)
