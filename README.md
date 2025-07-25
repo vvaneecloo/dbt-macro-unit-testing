@@ -1,6 +1,8 @@
 # dbt_macros_unit_testing
 
-<img width="1024" height="91" alt="dbt-{ macro }-unit-testing (1)" src="https://github.com/user-attachments/assets/4bab42eb-12c0-4b68-9925-04271c85b3f1" />
+
+<img width="1024" height="200" alt="dbt-{ macro }-unit-testing (1) (1)" src="https://github.com/user-attachments/assets/789962e1-9374-4b73-bbd6-0af7a6347838" />
+
 
 A lightweight dbt package for asserting expected outcomes in your dbt projects.
 
