@@ -18,7 +18,7 @@ Add the package to your `packages.yml` file:
 
 ```yaml
 packages:
-  - git: "https://github.com/your-org/dbt_assert.git"
+  - git: "https://github.com/vvaneecloo/dbt-macro-unit-testing"
     revision: main
 ```
 
